@@ -1,5 +1,5 @@
 // Estudo de caso 1 - Estrutura de Dados
-//// abstração e implementação da estrutura de dados matriz utilizando vetor
+// abstração e implementação da estrutura de dados matriz utilizando vetor
 
 #include <stdio.h>
 
