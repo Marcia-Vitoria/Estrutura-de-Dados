@@ -73,7 +73,7 @@ void somaMatriz (int vet1[], int vet2[], int vetResultado[]) {
 }
 
 // Questão 1
-// i.  cidades isoladas, isto é, as que não têm ligação com nenhuma outra
+// i. cidades isoladas, isto é, as que não têm ligação com nenhuma outra
 int contarEntradas(int vetor[], int cidade){
     int cont = 0;
     int k;
@@ -154,22 +154,16 @@ void comSaidaSemEntrada(int vetor[]){
 
 
 // iv. qual das cidades chega o maior número de estradas
-int cidadeMaiorEntrada(int vetor[], int n){
-    int i, j;
-    int maior = 0;
+int cidadeMaiorEntrada(int vetor[]){
     int cidade = 0;
+    int maior = 0;
     int entradas;
+    int j;
 
-    for (j = 0; j < n; j++){
-        entradas = 0;
+    for(j = 0; j < colunas; j++){
+        entradas = contarEntradas(vetor, j);
 
-        for (i = 1; i <= n; i++){
-            if (vetor[calculaIndiceMatrizBaseZero(i, j)] == 1){
-                entradas++;
-            }
-        }
-
-        if (entradas > maior){
+        if(entradas > maior){ // // em caso de empate, retorna a primeira cidade encontrada
             maior = entradas;
             cidade = j;
         }
@@ -178,15 +172,18 @@ int cidadeMaiorEntrada(int vetor[], int n){
     return cidade;
 }
 
+
 // v. relacionar as cidades que possuem saídas diretas para a cidade k
 void saidasDiretasParaK(int vetor[], int k){
-	int i;
-	printf("\nCidade(s) que possuem saidas diretas para a cidade %d:\n", k);
-	for(i = 0; i < linhas; i++){
-		if(i != k && vetor[calculaIndiceMatrizBaseZero(i, k)] == 1){ //não imprime a própria cidade
-			printf("cidade %d\n", i);
-		}
-	}
+    int i;
+
+    printf("\nCidade(s) que possuem saidas diretas para a cidade %d:\n", k);
+
+    for(i = 0; i < linhas; i++){
+        if(i != k && buscaElementoBaseZero(vetor, i, k) == 1){ // não considera a própria cidade como uma cidade que possui saída para ela mesma
+            printf("Cidade %d\n", i);
+        }
+    }
 }
 
 /* vi. dada uma sequência de m inteiros cujos valores estão entre 0 e n-1, verificar se é 
