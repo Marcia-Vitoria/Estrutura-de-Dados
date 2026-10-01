@@ -163,7 +163,7 @@ int cidadeMaiorEntrada(int vetor[]){
     for(j = 0; j < colunas; j++){
         entradas = contarEntradas(vetor, j);
 
-        if(entradas > maior){ // // em caso de empate, retorna a primeira cidade encontrada
+        if(entradas > maior){ // em caso de empate, retorna a primeira cidade encontrada
             maior = entradas;
             cidade = j;
         }
