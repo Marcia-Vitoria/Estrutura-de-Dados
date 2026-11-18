@@ -6,7 +6,7 @@
 typedef struct {
     char nome[50];
     char cpf[15];
-} TipoPessoa;
+} TipoPessoaCirc;
 
 typedef struct FilaCircular TipoFilaCircular;
 
@@ -14,10 +14,10 @@ typedef struct FilaCircular TipoFilaCircular;
 TipoFilaCircular *inicializarFilaCircular(void);
 int filaCircularVazia(TipoFilaCircular *fila);
 int filaCircularCheia(TipoFilaCircular *fila);
-int enfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoa p);
-int desenfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoa *p);
-int consultarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoa *p);
-int alterarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoa p);
+int enfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc p);
+int desenfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc *p);
+int consultarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc *p);
+int alterarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc p);
 void imprimirFilaCircular(TipoFilaCircular *fila);
 void destruirFilaCircular(TipoFilaCircular **fila);
 

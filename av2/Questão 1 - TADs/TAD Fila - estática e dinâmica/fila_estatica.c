@@ -5,12 +5,12 @@
 struct Fila {
     int inicio;
     int fim;
-    TipoPessoa elemt[TAM_MAX];
+    TipoPessoaEst elemt[TAM_MAX];
 };
 
 // inicializar fila
-TipoFila *inicializarFila(void) {
-    TipoFila *fila = malloc(sizeof(TipoFila));
+TipoFilaEst *inicializarFila(void) {
+    TipoFilaEst *fila = malloc(sizeof(TipoFilaEst));
 
     if (fila == NULL) {
         return NULL;
@@ -23,17 +23,17 @@ TipoFila *inicializarFila(void) {
 }
 
 // verificar se a fila está vazia
-int filaVazia(TipoFila *fila) {
+int filaVazia(TipoFilaEst *fila) {
     return (fila == NULL || fila->inicio > fila->fim);
 }
 
 // verificar se a fila está cheia
-int filaCheia(TipoFila *fila) {
+int filaCheia(TipoFilaEst *fila) {
     return (fila == NULL || fila->fim + 1 == TAM_MAX);
 }
 
 // enfileirar
-int enfileirar(TipoFila *fila, TipoPessoa p) {
+int enfileirar(TipoFilaEst *fila, TipoPessoaEst p) {
     if (fila == NULL || filaCheia(fila)) {
         printf("ERRO: fila cheia.\n");
         return 0;
@@ -47,7 +47,7 @@ int enfileirar(TipoFila *fila, TipoPessoa p) {
 }
 
 // desenfileirar
-int desenfileirar(TipoFila *fila, TipoPessoa *p) {
+int desenfileirar(TipoFilaEst *fila, TipoPessoaEst *p) {
     if (filaVazia(fila) || p == NULL) {
         printf("ERRO: fila vazia.\n");
         return 0;
@@ -60,7 +60,7 @@ int desenfileirar(TipoFila *fila, TipoPessoa *p) {
 }
 
 // consultar o primeiro elemento
-int consultarInicio(TipoFila *fila, TipoPessoa *p) {
+int consultarInicio(TipoFilaEst *fila, TipoPessoaEst *p) {
     if (filaVazia(fila) || p == NULL) {
         printf("ERRO: fila vazia.\n");
         return 0;
@@ -72,7 +72,7 @@ int consultarInicio(TipoFila *fila, TipoPessoa *p) {
 }
 
 // alterar o primeiro elemento
-int alterarInicio(TipoFila *fila, TipoPessoa p) {
+int alterarInicio(TipoFilaEst *fila, TipoPessoaEst p) {
     if (filaVazia(fila)) {
         printf("ERRO: fila vazia.\n");
         return 0;
@@ -84,7 +84,7 @@ int alterarInicio(TipoFila *fila, TipoPessoa p) {
 }
 
 // destruir fila
-void destruirFila(TipoFila **fila) {
+void destruirFila(TipoFilaEst **fila) {
     if (fila != NULL && *fila != NULL) {
         free(*fila);
         *fila = NULL;

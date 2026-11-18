@@ -6,12 +6,12 @@
 typedef struct pilha {
     int n;
     float vet[N];
-} Pilha;
+} PilhaNPI;
 
-void pilha_cria(Pilha *p);
-int pilha_vazia(Pilha *p);
-int pilha_cheia(Pilha *p);
-int pilha_push(Pilha *p, float valor);
-int pilha_pop(Pilha *p, float *valor);
+void pilhaCriaNPI(PilhaNPI *p);
+int pilhaVaziaNPI(PilhaNPI *p);
+int pilhaCheiaNPI(PilhaNPI *p);
+int pilhaPushNPI(PilhaNPI *p, float valor);
+int pilhaPopNPI(PilhaNPI *p, float *valor);
 
 #endif

@@ -1,19 +1,19 @@
 #include "pilha.h"
 
-void pilha_cria(Pilha *p) {
+void pilhaCriaNPI(PilhaNPI *p) {
     p->n = 0;
 }
 
-int pilha_vazia(Pilha *p) {
+int pilhaVaziaNPI(PilhaNPI *p) {
     return p->n == 0;
 }
 
-int pilha_cheia(Pilha *p) {
+int pilhaCheiaNPI(PilhaNPI *p) {
     return p->n == N;
 }
 
-int pilha_push(Pilha *p, float valor) {
-    if (pilha_cheia(p)) {
+int pilhaPushNPI(PilhaNPI *p, float valor) {
+    if (pilhaCheiaNPI(p)) {
         return 0;
     }
 
@@ -23,8 +23,8 @@ int pilha_push(Pilha *p, float valor) {
     return 1;
 }
 
-int pilha_pop(Pilha *p, float *valor) {
-    if (pilha_vazia(p)) {
+int pilhaPopNPI(PilhaNPI *p, float *valor) {
+    if (pilhaVaziaNPI(p)) {
         return 0;
     }
 

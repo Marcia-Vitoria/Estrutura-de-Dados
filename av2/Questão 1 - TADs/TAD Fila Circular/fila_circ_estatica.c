@@ -6,7 +6,7 @@ struct FilaCircular {
     int inicio;
     int fim;
     int qtde;
-    TipoPessoa elemt[TAM_MAX];
+    TipoPessoaCirc elemt[TAM_MAX];
 };
 
 // inicializar fila circular
@@ -35,7 +35,7 @@ int filaCircularCheia(TipoFilaCircular *fila) {
 }
 
 // enfileirar
-int enfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoa p) {
+int enfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc p) {
     if (fila == NULL || filaCircularCheia(fila)) {
         printf("ERRO: fila cheia.\n");
         return 0;
@@ -54,7 +54,7 @@ int enfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoa p) {
 }
 
 // desenfileirar
-int desenfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoa *p) {
+int desenfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc *p) {
     if (filaCircularVazia(fila) || p == NULL) {
         printf("ERRO: fila vazia.\n");
         return 0;
@@ -74,7 +74,7 @@ int desenfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoa *p) {
 }
 
 // consultar o primeiro elemento
-int consultarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoa *p) {
+int consultarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc *p) {
     if (filaCircularVazia(fila) || p == NULL) {
         printf("ERRO: fila vazia.\n");
         return 0;
@@ -86,7 +86,7 @@ int consultarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoa *p) {
 }
 
 // alterar o primeiro elemento
-int alterarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoa p) {
+int alterarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc p) {
     if (filaCircularVazia(fila)) {
         printf("ERRO: fila vazia.\n");
         return 0;

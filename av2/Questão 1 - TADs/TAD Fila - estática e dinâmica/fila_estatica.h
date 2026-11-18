@@ -6,18 +6,18 @@
 typedef struct {
     char nome[50];
     char cpf[15];
-} TipoPessoa;
+} TipoPessoaEst;
 
-typedef struct Fila TipoFila;
+typedef struct Fila TipoFilaEst;
 
 // operações da fila
-TipoFila *inicializarFila(void);
-int filaVazia(TipoFila *fila);
-int filaCheia(TipoFila *fila);
-int enfileirar(TipoFila *fila, TipoPessoa p);
-int desenfileirar(TipoFila *fila, TipoPessoa *p);
-int consultarInicio(TipoFila *fila, TipoPessoa *p);
-int alterarInicio(TipoFila *fila, TipoPessoa p);
-void destruirFila(TipoFila **fila);
+TipoFilaEst *inicializarFila(void);
+int filaVazia(TipoFilaEst *fila);
+int filaCheia(TipoFilaEst *fila);
+int enfileirar(TipoFilaEst *fila, TipoPessoaEst p);
+int desenfileirar(TipoFilaEst *fila, TipoPessoaEst *p);
+int consultarInicio(TipoFilaEst *fila, TipoPessoaEst *p);
+int alterarInicio(TipoFilaEst *fila, TipoPessoaEst p);
+void destruirFila(TipoFilaEst **fila);
 
 #endif

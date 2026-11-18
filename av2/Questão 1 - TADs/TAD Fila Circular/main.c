@@ -4,7 +4,7 @@
 
 int main(void) {
     TipoFilaCircular *fila = inicializarFilaCircular();
-    TipoPessoa p, consulta;
+    TipoPessoaCirc p, consulta;
     int opcao;
 
     if (fila == NULL) {

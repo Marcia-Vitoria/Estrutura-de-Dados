@@ -3,7 +3,7 @@
 #include "spooler.h"
 
 struct FilaCircular {
-    TipoPessoa elemt[TAM_MAX];
+    TipoPessoaCirc elemt[TAM_MAX];
     int inicio;
     int fim;
     int quantidade;
@@ -43,7 +43,7 @@ int filaCircularCheia(TipoFilaCircular *fila) {
 }
 
 // Inserir pessoa na fila
-int enfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoa p) {
+int enfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc p) {
     if (fila == NULL || filaCircularCheia(fila)) {
         return 0;
     }
@@ -58,7 +58,7 @@ int enfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoa p) {
 }
 
 // Remover pessoa da fila
-int desenfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoa *p) {
+int desenfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc *p) {
     if (filaCircularVazia(fila) || p == NULL) {
         return 0;
     }
@@ -73,7 +73,7 @@ int desenfileirarFilaCircular(TipoFilaCircular *fila, TipoPessoa *p) {
 }
 
 // Consultar primeiro elemento
-int consultarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoa *p) {
+int consultarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc *p) {
     if (filaCircularVazia(fila) || p == NULL) {
         return 0;
     }
@@ -84,7 +84,7 @@ int consultarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoa *p) {
 }
 
 // Alterar primeiro elemento
-int alterarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoa p) {
+int alterarInicioFilaCircular(TipoFilaCircular *fila, TipoPessoaCirc p) {
     if (filaCircularVazia(fila)) {
         return 0;
     }
@@ -179,7 +179,7 @@ int prioridadeCheia(TipoSpooler *spooler, int prioridade) {
     return filaCircularCheia(spooler->filas[prioridade - 1]);
 }
 
-int enviarDocumento(TipoSpooler *spooler, TipoPessoa p, int prioridade) {
+int enviarDocumento(TipoSpooler *spooler, TipoPessoaCirc p, int prioridade) {
     if (spooler == NULL || !prioridadeValida(prioridade)) {
         return 0;
     }
@@ -187,7 +187,7 @@ int enviarDocumento(TipoSpooler *spooler, TipoPessoa p, int prioridade) {
     return enfileirarFilaCircular(spooler->filas[prioridade - 1], p);
 }
 
-int imprimirProximo(TipoSpooler *spooler, TipoPessoa *p, int *prioridade) {
+int imprimirProximo(TipoSpooler *spooler, TipoPessoaCirc *p, int *prioridade) {
     if (spooler == NULL || p == NULL || prioridade == NULL) {
         return 0;
     }
@@ -203,7 +203,7 @@ int imprimirProximo(TipoSpooler *spooler, TipoPessoa *p, int *prioridade) {
     return 0;
 }
 
-int consultarProximo(TipoSpooler *spooler, TipoPessoa *p, int *prioridade) {
+int consultarProximo(TipoSpooler *spooler, TipoPessoaCirc *p, int *prioridade) {
     if (spooler == NULL || p == NULL || prioridade == NULL) {
         return 0;
     }
@@ -219,7 +219,7 @@ int consultarProximo(TipoSpooler *spooler, TipoPessoa *p, int *prioridade) {
 }
 
 void imprimirSpooler(TipoSpooler *spooler) {
-    TipoPessoa proximo;
+    TipoPessoaCirc proximo;
     int prioridade;
 
     printf("\n=========== FILA DE IMPRESSAO ===========\n");
@@ -255,7 +255,7 @@ void destruirSpooler(TipoSpooler **spooler) {
     *spooler = NULL;
 }
 
-int lerInteiro(void) {
+int lerInteiroSpooler(void) {
     int valor;
 
     while (scanf("%d", &valor) != 1) {
@@ -286,11 +286,11 @@ void lerTexto(char texto[], int tamanho) {
 
 // opção 1 do menu: lê os dados de quem está enviando e coloca o documento na fila da sua prioridade
 void opcaoEnviarDocumento(TipoSpooler *spooler) {
-    TipoPessoa p;
+    TipoPessoaCirc p;
     int cargo;
 
     printf("Cargo (1 = Diretor, 2 = Coordenador, 3 = Funcionario): ");
-    cargo = lerInteiro();
+    cargo = lerInteiroSpooler();
 
     if (cargo < DIRETOR || cargo > FUNCIONARIO) {
         printf("Cargo invalido!\n");
@@ -319,7 +319,7 @@ void opcaoEnviarDocumento(TipoSpooler *spooler) {
 
 // opção 2 do menu: a impressora atende o próximo da fila
 void opcaoImprimirProximo(TipoSpooler *spooler) {
-    TipoPessoa p;
+    TipoPessoaCirc p;
     int prioridade;
 
     if (imprimirProximo(spooler, &p, &prioridade)) {

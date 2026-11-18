@@ -11,13 +11,13 @@ typedef struct {
 typedef struct Fila TipoFila;
 
 // operações da fila
-TipoFila *inicializarFila(void);
-int filaVazia(TipoFila *fila);
-int filaCheia(TipoFila *fila);
-int enfileirar(TipoFila *fila, TipoPessoa p);
-int desenfileirar(TipoFila *fila, TipoPessoa *p);
-int consultarInicio(TipoFila *fila, TipoPessoa *p);
-int alterarInicio(TipoFila *fila, TipoPessoa p);
-void destruirFila(TipoFila **fila);
+TipoFila *inicializarFilaDin(void);
+int filaDinVazia(TipoFila *fila);
+int filaDinCheia(TipoFila *fila);
+int enfileirarDin(TipoFila *fila, TipoPessoa p);
+int desenfileirarDin(TipoFila *fila, TipoPessoa *p);
+int consultarInicioDin(TipoFila *fila, TipoPessoa *p);
+int alterarInicioDin(TipoFila *fila, TipoPessoa p);
+void destruirFilaDin(TipoFila **fila);
 
 #endif
