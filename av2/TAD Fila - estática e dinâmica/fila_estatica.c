@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "fila.h"
+#include "fila_estatica.h"
 
 struct Fila {
     int inicio;

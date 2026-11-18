@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pilha.h"
+#include "pilha_dinamica.h"
 // last in, first out
 // IMPLEMENTAÇÃO COM ENCADEAMENTO (DINÂMICA)
 

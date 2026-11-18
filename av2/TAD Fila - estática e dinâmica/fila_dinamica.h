@@ -1,5 +1,5 @@
-#ifndef FILA_H
-#define FILA_H
+#ifndef FILA_DINAMICA_H
+#define FILA_DINAMICA_H
 
 #define TAM_MAX 5
 

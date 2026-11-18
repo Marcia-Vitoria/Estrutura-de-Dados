@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "fila.h"
+#include "fila_dinamica.h"
 
 typedef struct No {
     TipoPessoa pessoa;

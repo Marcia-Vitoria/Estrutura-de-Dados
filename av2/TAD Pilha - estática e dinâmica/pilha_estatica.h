@@ -1,5 +1,5 @@
-#ifndef PILHA_H
-#define PILHA_H
+#ifndef PILHA_ESTATICA_H
+#define PILHA_ESTATICA_H
 
 // pilha de valores reais
 typedef struct pilha Pilha;
