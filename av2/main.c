@@ -3,6 +3,8 @@
 #include <string.h>
 #include "estatica.h"
 #include "encadeada.h"
+#include "pilha.h"
+#include "matriz.h"
 
 void listaEstatica(){
     Funcionario vet[QUANTIDADE];
@@ -69,6 +71,117 @@ void listaEncadeada(){
     while(decisao != 0);
 
     lst_libera(lst);
+
+    return 0;
+}
+
+void pilha(){
+    Pilha* p;
+    int opcao;
+    float valor;
+
+    p = pilha_cria();
+
+    do{
+        printf("\n===== MENU PILHA =====\n");
+        printf("1 - Inserir elemento\n");
+        printf("2 - Remover elemento\n");
+        printf("3 - Verificar se a pilha esta vazia\n");
+        printf("4 - Imprimir pilha\n");
+        printf("5 - Sair\n");
+        printf("Escolha uma opcao: ");
+        scanf("%d", &opcao);
+
+        switch(opcao){
+
+            case 1:
+                printf("Digite o valor: ");
+                scanf("%f", &valor);
+
+                pilha_push(p, valor);
+
+                printf("Elemento inserido com sucesso!\n");
+                break;
+
+            case 2:
+                if(pilha_vazia(p)){
+                    printf("Pilha vazia. Nao ha elementos para remover.\n");
+                }
+                else{
+                    valor = pilha_pop(p);
+                    printf("Elemento removido: %.2f\n", valor);
+                }
+                break;
+
+            case 3:
+                if(pilha_vazia(p)){
+                    printf("A pilha esta vazia.\n");
+                }
+                else{
+                    printf("A pilha possui elementos.\n");
+                }
+                break;
+
+            case 4:
+                pilha_imprime(p);
+                break;
+
+            case 5:
+                printf("Encerrando o programa...\n");
+                break;
+
+            default:
+                printf("Opcao invalida!\n");
+        }
+
+    }while(opcao != 5);
+
+    pilha_libera(p);
+
+    return 0;
+}
+
+void matriz(){
+    int matriz1[9];
+    int matriz2[9];
+    int resultado[9];
+
+    // dimensionar as matrizes para 3x3
+    dimensionaMatriz(3, 3);
+
+    // matriz 1
+    zeraMatriz(matriz1);
+    printf("Matriz 1 zerada:\n");
+    imprimeMatriz(matriz1);
+
+    adicionaElemento(matriz1, 15, 1, 1);
+    adicionaElemento(matriz1, 25, 2, 2);
+    adicionaElemento(matriz1, 35, 3, 3);
+
+    printf("\nMatriz 1 preenchida:\n");
+    imprimeMatriz(matriz1);
+
+    // matriz 2 para teste de soma
+    zeraMatriz(matriz2);
+    printf("\nMatriz 2 zerada:\n");
+    imprimeMatriz(matriz2);
+
+    adicionaElemento(matriz2, 5, 1, 1);
+    adicionaElemento(matriz2, 5, 2, 2);
+    adicionaElemento(matriz2, 5, 3, 3);
+
+    printf("\nMatriz 2 preenchida:\n");
+    imprimeMatriz(matriz2);
+
+    // buscar elemento
+    printf("\nO elemento que esta na linha 2 e coluna 2 da matriz 1 eh: %d\n",
+           buscaElemento(matriz1, 2, 2));
+
+    // somar matrizes
+    somaMatriz(matriz1, matriz2, resultado);
+
+    printf("\nSoma das matrizes:\n");
+    imprimeMatriz(resultado);
 
     return 0;
 }
