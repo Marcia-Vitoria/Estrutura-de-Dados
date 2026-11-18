@@ -234,8 +234,12 @@ void mostrarMenu(Elemento* lst){
     printf("----------------------------------\n");
     printf("%d funcionarios carregados de %s\n", lst_conta(lst), ARQUIVO);
     printf("----------------------------------\n");
-    printf("0 = Encerrar\n1 = Adicionar funcionario\n2 = Remover funcionario\n");
-    printf("3 = Imprimir ficha de funcionario\n4 = Excluir todos\n5 = Listar todos\n");
+    printf("1 - Adicionar funcionario\n");
+    printf("2 - Remover funcionario\n");
+    printf("3 - Imprimir ficha de funcionario\n");
+    printf("4 - Excluir todos\n");
+    printf("5 - Listar todos\n");
+    printf("0 - Voltar ao menu principal\n");
 }
 
 Elemento* opcaoAdicionar(Elemento* lst){

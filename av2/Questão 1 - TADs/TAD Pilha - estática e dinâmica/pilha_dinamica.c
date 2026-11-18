@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pilha.h"
+#include "pilha_dinamica.h"
 // last in, first out
 // IMPLEMENTAÇÃO COM ENCADEAMENTO (DINÂMICA)
 
@@ -18,7 +18,7 @@ struct pilha{
 };
 
 // cria uma pilha vazia e inicializa sua estrutura
-Pilha* pilha_cria(void){
+Pilha* pilhaDinCria(void){
     Pilha* p = (Pilha*)malloc(sizeof(Pilha));
 
     if(p==NULL){
@@ -30,7 +30,7 @@ Pilha* pilha_cria(void){
 }
 
 // insere um novo elemento no topo da pilha
-void pilha_push(Pilha* p, float v){
+void pilhaDinPush(Pilha* p, float v){
     Elemento* n = (Elemento*)malloc(sizeof(Elemento));
 
     if(n==NULL){
@@ -42,12 +42,21 @@ void pilha_push(Pilha* p, float v){
     p->prim=n;
 }
 
+// ver se a pilha está vazia
+int pilhaDinVazia(Pilha* p){
+    if(p->prim == NULL){
+        return 1; // vazia
+    }
+
+    return 0; // não vazia
+}
+
 // remove e retorna o elemento que está no topo da pilha
-float pilha_pop(Pilha* p){
+float pilhaDinPop(Pilha* p){
     Elemento* t;
     float v;
 
-    if(pilha_vazia(p)){
+    if(pilhaDinVazia(p)){
         printf("Pilha vazia.\n");
         exit(1);
     }
@@ -62,7 +71,7 @@ float pilha_pop(Pilha* p){
 }
 
 // libera a memória utilizada pela pilha
-void pilha_libera(Pilha* p){
+void pilhaDinLibera(Pilha* p){
     Elemento *t, *q = p->prim;
 
     while(q!=NULL){
@@ -74,20 +83,11 @@ void pilha_libera(Pilha* p){
     free(p);
 }
 
-// ver se a pilha está vazia
-int pilha_vazia(Pilha* p){
-    if(p->prim == NULL){
-        return 1; // vazia
-    }
-
-    return 0; // não vazia
-}
-
 // imprime a pilha
-void pilha_imprime(Pilha* p){
+void pilhaDinImprime(Pilha* p){
     Elemento* q;
 
-    if(pilha_vazia(p)){
+    if(pilhaDinVazia(p)){
         printf("Pilha vazia.\n");
         return;
     }

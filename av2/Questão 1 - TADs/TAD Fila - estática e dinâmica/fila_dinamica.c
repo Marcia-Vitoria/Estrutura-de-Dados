@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "fila.h"
+#include "fila_dinamica.h"
 
 typedef struct No {
     TipoPessoa pessoa;
@@ -13,7 +13,7 @@ struct Fila {
 };
 
 // inicializar fila
-TipoFila *inicializarFila(void) {
+TipoFila *inicializarFilaDin(void) {
     TipoFila *fila = malloc(sizeof(TipoFila));
 
     if (fila == NULL) {
@@ -27,17 +27,17 @@ TipoFila *inicializarFila(void) {
 }
 
 // verificar se a fila está vazia
-int filaVazia(TipoFila *fila) {
+int filaDinVazia(TipoFila *fila) {
     return (fila == NULL || fila->inicio == NULL);
 }
 
 // verificar se a fila está cheia
-int filaCheia(TipoFila *fila) {
+int filaDinCheia(TipoFila *fila) {
     return 0;
 }
 
 // enfileirar
-int enfileirar(TipoFila *fila, TipoPessoa p) {
+int enfileirarDin(TipoFila *fila, TipoPessoa p) {
     if (fila == NULL) {
         return 0;
     }
@@ -52,7 +52,7 @@ int enfileirar(TipoFila *fila, TipoPessoa p) {
     novo->pessoa = p;
     novo->prox = NULL;
 
-    if (filaVazia(fila)) {
+    if (filaDinVazia(fila)) {
         fila->inicio = novo;
     } else {
         fila->fim->prox = novo;
@@ -65,8 +65,8 @@ int enfileirar(TipoFila *fila, TipoPessoa p) {
 }
 
 // desenfileirar
-int desenfileirar(TipoFila *fila, TipoPessoa *p) {
-    if (filaVazia(fila) || p == NULL) {
+int desenfileirarDin(TipoFila *fila, TipoPessoa *p) {
+    if (filaDinVazia(fila) || p == NULL) {
         printf("ERRO: fila vazia.\n");
         return 0;
     }
@@ -86,8 +86,8 @@ int desenfileirar(TipoFila *fila, TipoPessoa *p) {
 }
 
 // consultar o primeiro elemento
-int consultarInicio(TipoFila *fila, TipoPessoa *p) {
-    if (filaVazia(fila) || p == NULL) {
+int consultarInicioDin(TipoFila *fila, TipoPessoa *p) {
+    if (filaDinVazia(fila) || p == NULL) {
         printf("ERRO: fila vazia.\n");
         return 0;
     }
@@ -98,8 +98,8 @@ int consultarInicio(TipoFila *fila, TipoPessoa *p) {
 }
 
 // alterar o primeiro elemento
-int alterarInicio(TipoFila *fila, TipoPessoa p) {
-    if (filaVazia(fila)) {
+int alterarInicioDin(TipoFila *fila, TipoPessoa p) {
+    if (filaDinVazia(fila)) {
         printf("ERRO: fila vazia.\n");
         return 0;
     }
@@ -110,7 +110,7 @@ int alterarInicio(TipoFila *fila, TipoPessoa p) {
 }
 
 // destruir fila
-void destruirFila(TipoFila **fila) {
+void destruirFilaDin(TipoFila **fila) {
     if (fila == NULL || *fila == NULL) {
         return;
     }

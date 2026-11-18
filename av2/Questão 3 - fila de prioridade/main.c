@@ -23,7 +23,7 @@ int main() {
         printf("0 = Encerrar\n1 = Enviar documento para impressao\n");
         printf("2 = Imprimir proximo documento\n3 = Mostrar fila de impressao\n");
 
-        decisao = lerInteiro();
+        decisao = lerInteiroSpooler();
 
         switch (decisao) {
             case 0: printf("Encerrando...\n"); break;

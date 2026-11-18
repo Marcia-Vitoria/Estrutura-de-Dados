@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pilha.h"
+#include "pilha_estatica.h"
 
 // IMPLEMENTAÇÃO COM VETOR (ESTÁTICA)
 #define N 50
