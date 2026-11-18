@@ -5,6 +5,11 @@
 #include "encadeada.h"
 #include "pilha.h"
 #include "matriz.h"
+#include "fila_dinamica.h"
+#include "fila_estatica.h"
+#include "fila_circular.h"
+#include  "spooler.h"
+
 
 void listaEstatica(){
     Funcionario vet[QUANTIDADE];
